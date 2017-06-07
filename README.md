@@ -1,4 +1,4 @@
-# Medium Scrapper
+# Medium Scraper
 
 #### Description
 This code contains a scrapper that given tags stores the top articles related. 
