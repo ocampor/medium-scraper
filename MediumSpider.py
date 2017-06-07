@@ -20,7 +20,8 @@ class MediumSpider:
         Pool().map(self.save, links)
 
     def parse(self, link):
-        return ArticleInfo(link).to_json()
+        with ArticleInfo(link) as article:
+            return article.to_json()
 
     def save(self, link):
         article = self.parse(link)

@@ -8,6 +8,9 @@ class ArticleInfo:
         self._url = url
         self._initialize()
 
+    def __enter__(self):
+        return self
+
     def _initialize(self):
         self._driver.get(self._url)
 
@@ -41,3 +44,6 @@ class ArticleInfo:
             'body': self.body,
             'tags': self.tags
         }
+
+    def __exit__(self, ext_type, ext_value, traceback):
+        self._driver.quit()
