@@ -12,14 +12,20 @@ class ArticleInfo:
         self._driver.get(self._url)
 
     @property
-    def body(self):
+    def id(self):
         identifier = 'postArticle-content'
         body = self._driver.find_element(By.CLASS_NAME, identifier)
-        return body.text
+        return body.get_attribute('data-post-id')
 
     @property
     def title(self):
         return self._driver.title
+
+    @property
+    def body(self):
+        identifier = 'postArticle-content'
+        body = self._driver.find_element(By.CLASS_NAME, identifier)
+        return body.text
 
     @property
     def tags(self):
@@ -30,6 +36,7 @@ class ArticleInfo:
 
     def to_json(self):
         return {
+            '_id': self.id,
             'title': self.title,
             'body': self.body,
             'tags': self.tags

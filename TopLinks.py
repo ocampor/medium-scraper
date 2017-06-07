@@ -12,11 +12,12 @@ class TopLinks:
         tag_url = "{0}/{1}/{2}".format(self._medium_url, 'tag', tag)
         self._driver.get(tag_url)
 
-    def get_links(self):
-        links = self._driver.find_elements(By.PARTIAL_LINK_TEXT, "Read more")
-        return [link.get_attribute('href') for link in links]
-
     def next(self):
         scroll_down = 'window.scrollTo(0, document.body.scrollHeight);'
         self._driver.execute_script(scroll_down)
         return self
+
+    @property
+    def links(self):
+        links = self._driver.find_elements(By.PARTIAL_LINK_TEXT, "Read more")
+        return [link.get_attribute('href') for link in links]
