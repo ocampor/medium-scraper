@@ -3,11 +3,6 @@ from selenium.webdriver.common.by import By
 
 
 class TopLinks:
-    """This class takes a keyword and return top medium articles urls related
-
-    Args:
-    tag (str): Keyword of the links you want to get
-    """
     def __init__(self, tag):
         self._driver = webdriver.PhantomJS()
         self._medium_url = 'https://medium.com'
