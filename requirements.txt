@@ -1,2 +1,5 @@
 jupyter
 selenium
+mongoengine
+pymongo
+dotenv
