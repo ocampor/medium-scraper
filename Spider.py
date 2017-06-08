@@ -1,12 +1,12 @@
-from ArticleInfo import ArticleInfo
-from TopLinks import TopLinks
+from medium_parser import ArticleInfo
+from medium_parser import TopLinks
 from models import ArticleModel
 from multiprocessing import Pool
 from controllers import MongoController
 from mongoengine import connect
 
 
-class MediumSpider:
+class Spider:
     def __init__(self, seeds):
         self._seeds = seeds
         self.start_requests()
@@ -33,5 +33,5 @@ class MediumSpider:
 if __name__ == '__main__':
     import time
     start_time = time.time()
-    MediumSpider(['python', 'machine learning'])
+    Spider(['python', 'machine learning'])
     print("time: {0}".format(time.time() - start_time))
