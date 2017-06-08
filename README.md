@@ -15,4 +15,4 @@ Python 3
 1. Run mongo `sudo mongod`
 2. Create a `.env` file. You can use `.env.example`
 2. Set a list of initial tags `seeds = ['python', 'machine learning']`.
-3. Create an instance of `MediumSpider` with your initial seeds `MediumSpider(seeds)`.
+3. Create an instance of `Spider` with your initial seeds `Spider(seeds)`.
